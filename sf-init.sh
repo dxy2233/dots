@@ -8,3 +8,5 @@ DOTFILES_DIR=$(pwd)
 
 [ ! -L ~/.config/kitty ] && ln -sf $DOTFILES_DIR/configs/kitty ~/.config/kitty
 [ ! -L ~/.config/wofi ] && ln -sf $DOTFILES_DIR/configs/wofi ~/.config/wofi
+
+[ ! -L ~/.config/nvim ] && ln -sf $DOTFILES_DIR/configs/nvim ~/.config/nvim
