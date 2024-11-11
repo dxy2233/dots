@@ -1,0 +1,253 @@
+(defwindow bar
+  :monitor 1
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "20px"
+                      :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  (box :space-evenly true
+    (barFront)
+    (barMiddle)
+    (barBack)
+  )
+)
+(defwidget barFront []
+  (box :space-evenly false
+    (menubtn)
+    (workspaces)
+    (music)
+  )
+)
+(defwidget barMiddle []
+  (box :width 200 
+       :halign "center"
+    (timedate)
+  )
+)
+(defwidget barBack []
+  (box :halign "end"
+       :space-evenly false
+    (sys)
+    (sidestuff)
+    (sysstate)
+    (closebtn)
+  )
+)
+
+
+
+
+(defwidget sys []
+  (box :class "wrap"
+    (systray :icon-size 18 
+      :spacing 10
+      :halign "center"
+      :valign "center"
+      :class "sysmenu"
+    )
+  )
+)
+(defwidget closebtn []
+  (eventbox :cursor "pointer"
+            :onclick "bash ~/.config/eww/scripts/open-closebox"
+    (button :class "close-btn"
+      (label :text "⏻")
+    )
+  )
+)
+(defwidget menubtn []
+  (eventbox :cursor "pointer"
+            :onclick "bash ~/.config/eww/scripts/click-wofi"
+    (button :class "menu-btn"
+      (label :text " ")
+    )
+  )
+)
+
+
+(defwidget sidestuff []
+  (box :class "sidestuff wrap"
+       :space-evenly false
+      (colorpick)
+      (bluetooth)
+      (volume)
+  )
+)
+
+(defwidget volume []
+  (box
+    (label :text " ")
+    (label :text "${current_volume}")
+  )
+)
+(deflisten current_volume "bash ~/.config/eww/scripts/get-current-volume")
+
+(defwidget colorpick []
+  (box :class "icons-border-right"
+       :tooltip "color pick"
+    (button :onclick "bash ~/.config/eww/scripts/color-pick"
+      (label :text " ")
+    )
+  )
+)
+
+(defwidget bluetooth []
+  (eventbox :cursor "pointer"
+            :onclick "bash ~/.config/eww/scripts/bluetooth"
+    (box :class "icons-border-right"
+      (label :text "")
+    )
+  )
+)
+
+
+
+
+(defwidget sysstate []
+  (box :class "sysstate wrap"
+       :space-evenly false
+
+    (box :space-evenly false
+          :class "icons-border-right"
+          :tooltip "${round(EWW_RAM.used_mem / 1024 / 1024 / 1024, 1)}/${round(EWW_RAM.total_mem / 1024 / 1024 / 1024, 1)}"
+      (label :text " ")
+      (label :text "${round(EWW_RAM.used_mem_perc,1)}%")
+    )
+
+    (tooltip
+      (box :orientation "v"
+        (for cpu in "${EWW_CPU.cores}"
+          (box :height 30
+               :style "font-size: 18px"
+            (label :text "${cpu.core}:"
+                   :xalign 1
+            )
+            (label :text "${cpu.usage}%")
+          )
+        )
+      )
+      (box :space-evenly false
+           :style "margin-left: 6px;"
+        (label :text " ")
+        (label :text "${round(EWW_CPU.avg,1)}%")
+      )
+    )
+  )
+)
+
+
+
+
+(defwidget timedate []
+  (box :class "wrap time"
+    (label :text time)
+  )
+)
+(defpoll time :interval "30s"
+              :initial "initial-value"
+  "date '+%H:%M %b %d, %Y'")
+
+(defwidget cal []
+	(box :class "cal" :orientation "v"
+    (box :class "cal-in"
+      (calendar :class "cal")
+    )
+  )
+)
+(defwindow calendar
+  :monitor 1
+	:geometry (geometry :x "20px" 
+                      :y "7%" 
+                      :anchor "top right"
+                      :width "270px" 
+                      :height "60px")
+(cal)
+)
+
+
+
+(defwidget music []
+  (box :class "music wrap"
+       :visible "${musictxt != ""}"
+    :halign "start"
+    :valign "center"
+    (label :text "${musictxt != "" ? "🎵" : ""}"
+           :truncate true
+           :limit-width 30 
+           :show-truncated true
+    )
+  )
+)
+(deflisten musictxt :initial ""
+  "playerctl --follow metadata --format '{{ title }}-{{ artist }}' || true")
+
+(defwidget workspaces []
+  (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}"
+    (box :space-evenly false
+         :class "workspaces-widget wrap"
+      (for workspace in workspaces
+        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+                  :visible "${workspace.monitor != 'null'}"
+                  :cursor "pointer"
+          (box :class "workspace-entry-box ${workspace.windows > 0 ? "occupied" : "empty"}"
+              (label :text "${workspace.id}"
+                    :class "workspace-entry-label ${workspace.id == current_workspace ? "current" : ""}")
+          )
+        )
+      )
+    )
+  )
+)
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces")
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
+(deflisten window :initial "..." "bash ~/.config/eww/scripts/get-window-title")
+
+(defwindow closebox
+  :monitor 1
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "100%"
+                      :anchor "bottom center")
+  :stackinfalse "overlay"
+  (overlay
+    (eventbox :class "closebox"
+              :onclick "eww close closebox"
+    )
+    (eventbox :space-evenly false
+              :halign "center"
+              :valign "center"
+              :cursor "pointer"
+      (box :orientation "v"
+           :class "box"
+           :width 280
+           :height 270
+           :spacing 10
+        (box :class "row"
+             :spacing 10
+          (button :class "btn"
+                  :onclick "bash ~/.config/eww/scripts/lock"
+            (label :text "󰍁")
+          )
+          (button :class "btn"
+                  :onclick "reboot"
+            (label :text "󰓦")
+          )
+        )
+        (box :class "row"
+             :spacing 10
+          (button :class "btn" 
+                  :onclick "hyprctl dispatch exit"
+            (label :text "")
+          )
+          (button :class "btn" 
+                  :onclick "shutdown now"
+            (label :text "󰤆")
+          )
+        )
+      )
+    )
+  )
+)

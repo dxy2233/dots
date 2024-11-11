@@ -1,0 +1,10 @@
+#!/bin/bash
+
+EWW=$(which eww)
+
+if [[ $(pidof eww) ]]; then
+  pkill eww
+  ${EWW} daemon
+  sleep 1
+  ${EWW} open bar
+fi

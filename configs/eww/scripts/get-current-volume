@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+get_volume() {
+  pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'
+}
+
+echo "$(get_volume)"
+
+pactl subscribe | grep --line-buffered "change" | while read line; do
+  echo "$(get_volume)"
+done

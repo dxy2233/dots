@@ -1,0 +1,137 @@
+$base-bar: #e9d8a6;
+$base-text: #94d2bd;
+$active-text: #0a9396;
+
+$base-wrap-bg: #fff3b0;
+$base-border: #e9d8a6;
+
+$base-time: #0a9396;
+
+$close-btn: #9b2226;
+$menu-btn: #005f73;
+
+$base-bg: rgba(128, 128, 128, 0.3);
+$closebox-bg: #001219;
+$closebox-btn: #ffbe0b;
+$closebox-active: #fb5607;
+
+$c-1: #ee9b00;
+$c-2: #ca6702;
+$c-3: #bb3e03;
+$c-4: #ae2012;
+
+* {
+  all: unset;
+}
+.bar {
+  background-color: $base-bar;
+  color: $base-text;
+  padding: 6px 10px;
+  border-radius: 0 0 8px 8px;
+  font-weight: 700;
+}
+
+.wrap {
+  background-color: $base-wrap-bg;
+  padding: 4px 10px 3px;
+  border-radius: 8px;
+}
+
+// 系统托盘
+.sysmenu {
+  menu {
+    padding: 5px;
+    background-color: #faf4ed;
+    color: #575279;
+    border-radius: 8px;
+    menuitem {
+      border-radius: 5px;
+      padding: 8px 12px;
+    }
+    menuitem:hover {
+      background-color: #f186a4;
+    }
+  }
+}
+// 系统状态栏
+.sidestuff,
+.sysstate {
+  margin-left: 10px;
+  > *:nth-child(1) {
+    color: $c-1;
+  }
+  > *:nth-child(2) {
+    color: $c-2;
+  }
+  > *:nth-child(3) {
+    color: $c-3;
+  }
+  > *:nth-child(4) {
+    color: $c-4;
+  }
+}
+// border-right
+.icons-border-right {
+  padding: 0 6px;
+  border-right: 2px solid $base-border;
+}
+
+// musci
+.music {
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+// time
+.time {
+  color: $base-time;
+}
+
+.close-btn {
+  color: $close-btn;
+  margin: 0 4px 0 10px;
+  font-size: 18px;
+}
+.menu-btn {
+  color: $menu-btn;
+  font-size: 18px;
+}
+
+// workspace
+.workspaces-widget {
+  // padding: 20px 20px;
+}
+.workspace-entry-box {
+  margin: 0 6px;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+.workspace-entry-box.occupied {
+  color: $base-text;
+}
+// .workspace-entry-box.empty {
+//   color: #888888;
+// }
+.workspace-entry-label.current {
+  color: $active-text;
+}
+
+// (label :text " 󰒋 ")
+//// clasebox
+.closebox {
+  background-color: $base-bg;
+  .box {
+    background-color: $closebox-bg;
+    padding: 8px;
+    .row {
+      .btn {
+        font-size: 50px;
+        background-color: $closebox-btn;
+        border-radius: 5px;
+        &:hover {
+          background-color: $closebox-active;
+        }
+      }
+    }
+  }
+}

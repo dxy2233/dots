@@ -1,0 +1,6 @@
+"clock": {
+        "format": "<span color='#bf616a'> </span>{:%a %b %d}",
+        "format-alt": "<span color='#bf616a'> </span>{:%I:%M %p}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    },
+        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
