@@ -77,16 +77,16 @@
 )
 
 (defwidget volume []
-  (box
-    (label :text " ")
+  (box :class "icons-border-left"
+       :space-evenly false
+    (label :text "  ")
     (label :text "${current_volume}")
   )
 )
 (deflisten current_volume "bash ~/.config/eww/scripts/get-current-volume")
 
 (defwidget colorpick []
-  (box :class "icons-border-right"
-       :tooltip "color pick"
+  (box :tooltip "color pick"
     (button :onclick "bash ~/.config/eww/scripts/color-pick"
       (label :text " ")
     )
@@ -96,7 +96,7 @@
 (defwidget bluetooth []
   (eventbox :cursor "pointer"
             :onclick "bash ~/.config/eww/scripts/bluetooth"
-    (box :class "icons-border-right"
+    (box :class "icons-border-left"
       (label :text "")
     )
   )
@@ -110,7 +110,6 @@
        :space-evenly false
 
     (box :space-evenly false
-          :class "icons-border-right"
           :tooltip "${round(EWW_RAM.used_mem / 1024 / 1024 / 1024, 1)}/${round(EWW_RAM.total_mem / 1024 / 1024 / 1024, 1)}"
       (label :text " ")
       (label :text "${round(EWW_RAM.used_mem_perc,1)}%")
@@ -129,10 +128,16 @@
         )
       )
       (box :space-evenly false
-           :style "margin-left: 6px;"
+           :class "icons-border-left"
         (label :text " ")
         (label :text "${round(EWW_CPU.avg,1)}%")
       )
+    )
+
+    (box :space-evenly false
+          :class "icons-border-left"
+      (label :text " ")
+      (label :text "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}°C")
     )
   )
 )

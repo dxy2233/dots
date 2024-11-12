@@ -71,9 +71,14 @@ $c-4: #ae2012;
   }
 }
 // border-right
-.icons-border-right {
-  padding: 0 6px;
-  border-right: 2px solid $base-border;
+// .icons-border-right {
+//   padding: 0 6px;
+//   border-right: 2px solid $base-border;
+// }
+.icons-border-left {
+  margin-left: 6px;
+  padding-left: 8px;
+  border-left: 2px solid $base-border;
 }
 
 // musci
