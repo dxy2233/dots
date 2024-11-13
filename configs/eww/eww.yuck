@@ -110,7 +110,7 @@
        :space-evenly false
 
     (box :space-evenly false
-          :tooltip "${round(EWW_RAM.used_mem / 1024 / 1024 / 1024, 1)}/${round(EWW_RAM.total_mem / 1024 / 1024 / 1024, 1)}"
+         :tooltip "${round(EWW_RAM.used_mem / 1024 / 1024 / 1024, 1)}/${round(EWW_RAM.total_mem / 1024 / 1024 / 1024, 1)}"
       (label :text " ")
       (label :text "${round(EWW_RAM.used_mem_perc,1)}%")
     )
@@ -152,7 +152,7 @@
 )
 (defpoll time :interval "30s"
               :initial "initial-value"
-  "date '+%H:%M %b %d, %Y'")
+  "date '+%Y %b %d, %H:%M '")
 
 (defwidget cal []
 	(box :class "cal" :orientation "v"
@@ -178,6 +178,7 @@
        :visible "${musictxt != ""}"
     :halign "start"
     :valign "center"
+    :tooltip "${musictxt}"
     (label :text "${musictxt != "" ? "🎵" : ""}"
            :truncate true
            :limit-width 30 
@@ -225,32 +226,25 @@
               :halign "center"
               :valign "center"
               :cursor "pointer"
-      (box :orientation "v"
-           :class "box"
-           :width 280
-           :height 270
-           :spacing 10
-        (box :class "row"
-             :spacing 10
-          (button :class "btn"
-                  :onclick "bash ~/.config/eww/scripts/lock"
-            (label :text "󰍁")
-          )
-          (button :class "btn"
-                  :onclick "reboot"
-            (label :text "󰓦")
-          )
+      (box :class "box"
+           :spacing 20
+        (button :class "btn"
+          :onclick "bash ~/.config/eww/scripts/lock"
+           :width 100
+           :height 100
+          (label :text "󰍁")
         )
-        (box :class "row"
-             :spacing 10
-          (button :class "btn" 
-                  :onclick "hyprctl dispatch exit"
-            (label :text "")
-          )
-          (button :class "btn" 
-                  :onclick "shutdown now"
-            (label :text "󰤆")
-          )
+        (button :class "btn"
+                :onclick "reboot"
+          (label :text "󰓦")
+        )
+        (button :class "btn" 
+                :onclick "hyprctl dispatch exit"
+          (label :text "")
+        )
+        (button :class "btn" 
+                :onclick "shutdown now"
+          (label :text "⏻" :style "margin-left:-8px")
         )
       )
     )

@@ -10,10 +10,11 @@ $base-time: #0a9396;
 $close-btn: #9b2226;
 $menu-btn: #005f73;
 
-$base-bg: rgba(128, 128, 128, 0.3);
+$base-bg: rgba(90, 90, 90, 0.4);
 $closebox-bg: #001219;
-$closebox-btn: #ffbe0b;
-$closebox-active: #fb5607;
+$closebox-btn: rgba(128, 128, 128, 0.6);
+$closebox-active: rgba(0, 0, 0, 0.2);
+$closebox-text-active: #e95494;
 
 $c-1: #ee9b00;
 $c-2: #ca6702;
@@ -126,17 +127,18 @@ $c-4: #ae2012;
 .closebox {
   background-color: $base-bg;
   .box {
-    background-color: $closebox-bg;
-    padding: 8px;
-    .row {
-      .btn {
-        font-size: 50px;
-        background-color: $closebox-btn;
-        border-radius: 5px;
-        &:hover {
-          background-color: $closebox-active;
-        }
+    // background-color: $closebox-bg;
+    // padding: 8px;
+    // .row {
+    .btn {
+      font-size: 50px;
+      background-color: $closebox-btn;
+      border-radius: 50%;
+      &:hover {
+        background-color: $closebox-active;
+        color: $closebox-text-active;
       }
     }
+    // }
   }
 }
