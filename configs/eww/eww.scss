@@ -92,6 +92,31 @@ $c-4: #ae2012;
 .time {
   color: $base-time;
 }
+// calendar
+calendar {
+  background-color: $base-bar;
+  color: $active-text;
+  border-radius: 8px;
+  padding: 12px;
+  &:selected {
+    color: $c-4;
+  }
+  // 月/年
+  .header {
+    color: $c-2;
+  }
+  // 切换按钮
+  .button {
+    color: $menu-btn;
+  }
+  .highlight {
+    color: $c-2;
+  }
+  // 非当前月的day
+  &:indeterminate {
+    color: $c-1;
+  }
+}
 
 .close-btn {
   color: $close-btn;
