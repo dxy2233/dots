@@ -1,29 +1,7 @@
-$base-bar: #e9d8a6;
-$base-text: #94d2bd;
-$active-text: #0a9396;
-
-$base-wrap-bg: #fff3b0;
-$base-border: #e9d8a6;
-
-$base-time: #0a9396;
-
-$close-btn: #9b2226;
-$menu-btn: #005f73;
-
-$base-bg: rgba(90, 90, 90, 0.4);
-$closebox-bg: #001219;
-$closebox-btn: rgba(128, 128, 128, 0.6);
-$closebox-active: rgba(0, 0, 0, 0.2);
-$closebox-text-active: #e95494;
-
-$c-1: #ee9b00;
-$c-2: #ca6702;
-$c-3: #bb3e03;
-$c-4: #ae2012;
-
-* {
+@import "./color.scss" * {
   all: unset;
 }
+
 .bar {
   background-color: $base-bar;
   color: $base-text;
@@ -33,9 +11,10 @@ $c-4: #ae2012;
 }
 
 .wrap {
-  background-color: $base-wrap-bg;
+  background-color: $wrap-bg;
   padding: 4px 10px 3px;
   border-radius: 8px;
+  border: 2px solid $wrap-border;
 }
 
 // 系统托盘
@@ -94,27 +73,28 @@ $c-4: #ae2012;
 }
 // calendar
 calendar {
-  background-color: $base-bar;
-  color: $active-text;
+  background-color: $calendar-bg;
+  color: $calendar-text;
+  font-weight: 800;
   border-radius: 8px;
   padding: 12px;
   &:selected {
-    color: $c-4;
+    color: $calendar-select-text;
   }
   // 月/年
   .header {
-    color: $c-2;
+    color: $calendar-header;
   }
   // 切换按钮
   .button {
-    color: $menu-btn;
+    color: $calendar-btn;
   }
   .highlight {
-    color: $c-2;
+    color: $calendar-week;
   }
   // 非当前月的day
   &:indeterminate {
-    color: $c-1;
+    color: $calendar-edge-text;
   }
 }
 

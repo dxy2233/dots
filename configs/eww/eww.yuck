@@ -112,7 +112,7 @@
     (box :space-evenly false
          :tooltip "${round(EWW_RAM.used_mem / 1024 / 1024 / 1024, 1)}/${round(EWW_RAM.total_mem / 1024 / 1024 / 1024, 1)}"
       (label :text " ")
-      (label :text "${round(EWW_RAM.used_mem_perc,1)}%")
+      (label :width 47 :text "${round(EWW_RAM.used_mem_perc,1)}%")
     )
 
     (tooltip
@@ -130,14 +130,14 @@
       (box :space-evenly false
            :class "icons-border-left"
         (label :text " ")
-        (label :text "${round(EWW_CPU.avg,1)}%")
+        (label :width 40 :text "${round(EWW_CPU.avg,1)}%")
       )
     )
 
     (box :space-evenly false
           :class "icons-border-left"
       (label :text " ")
-      (label :text "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}°C")
+      (label :width 40 :text "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}°C")
     )
   )
 )
