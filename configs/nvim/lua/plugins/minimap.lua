@@ -4,7 +4,7 @@ return {
     event = "BufReadPost",
     config = function()
       local scrollbar = require("scrollbar")
-      -- local colors = require("dracula").colors()
+      local colors = require("dracula").colors()
       scrollbar.setup({
         handle = { color = "#a80216" },
         excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify", "nerdtree" },
@@ -12,14 +12,14 @@ return {
         base = "buffer",
         column = 80,
         signs_on_startup = { "all" },
-        -- marks = {
-        --   Search = { color = colors.orange },
-        --   Error = { color = colors.red },
-        --   Warn = { color = colors.cyan },
-        --   Info = { color = colors.green },
-        --   Hint = { color = colors.yellow },
-        --   Misc = { color = colors.purple },
-        -- },
+        marks = {
+          Search = { color = colors.orange },
+          Error = { color = colors.red },
+          Warn = { color = colors.cyan },
+          Info = { color = colors.green },
+          Hint = { color = colors.yellow },
+          Misc = { color = colors.purple },
+        },
       })
     end,
   },

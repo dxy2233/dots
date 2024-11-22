@@ -215,7 +215,7 @@
   :stackinfalse "overlay"
   (overlay
     (eventbox :class "closebox"
-              :onclick "eww close closebox"
+              :onclick "bash ~/.config/eww/scripts/close-closebox"
     )
     (eventbox :space-evenly false
               :halign "center"

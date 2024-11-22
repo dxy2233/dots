@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
 eww open closebox
+
+# hyprctl keyword bind ,escape,exec,eww close closebox
