@@ -88,7 +88,7 @@
 (defwidget colorpick []
   (box :tooltip "color pick"
     (button :onclick "bash ~/.config/eww/scripts/color-pick"
-      (label :text " ")
+      (label :text "󱏞" :style "margin:0 3px")
     )
   )
 )
