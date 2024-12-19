@@ -1,64 +1,43 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    -- event = "LazyFile",
-    dependencies = {
-      -- { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
-      -- { "folke/neodev.nvim", opts = {} },
-      -- "mason.nvim",
-      -- "williamboman/mason-lspconfig.nvim",
-    },
     opts = {
-      -- diagnostics = {
-      --   underline = true,
-      --   update_in_insert = false,
-      --   virtual_text = {
-      --     spacing = 4,
-      --     source = "if_many",
-      --     prefix = "●",
+      -- format = {
+      --   timeout_ms = 5000,
+      -- },
+      -- servers = {
+      -- eslint = {
+      --   settings = {
+      --     workingDirectory = { mode = "auto" },
       --   },
-      --   severity_sort = true,
       -- },
-      -- inlay_hints = {
-      --   enabled = true,
+      -- emmet_ls = {
+      --   filetypes = {
+      --     "css",
+      --     "eruby",
+      --     "html",
+      --     "javascript",
+      --     "javascriptreact",
+      --     "less",
+      --     "sass",
+      --     "scss",
+      --     "svelte",
+      --     "pug",
+      --     "typescriptreact",
+      --     "vue",
+      --   },
+      --   init_options = {
+      --     html = {
+      --       options = {
+      --         ["bem.enabled"] = true,
+      --       },
+      --     },
+      --   },
       -- },
-      -- capabilities = {},
-      format = {
-        timeout_ms = 5000,
-      },
-      servers = {
-        eslint = {
-          settings = {
-            workingDirectory = { mode = "auto" },
-          },
-        },
-        emmet_ls = {
-          filetypes = {
-            "css",
-            "eruby",
-            "html",
-            "javascript",
-            "javascriptreact",
-            "less",
-            "sass",
-            "scss",
-            "svelte",
-            "pug",
-            "typescriptreact",
-            "vue",
-          },
-          init_options = {
-            html = {
-              options = {
-                ["bem.enabled"] = true,
-              },
-            },
-          },
-        },
-        volar = {
-          filetypes = { "vue" },
-        },
-      },
+      -- volar = {
+      --   filetypes = { "vue" },
+      -- },
+      -- },
       setup = {
         volar = function()
           require("lazyvim.util").lsp.on_attach(function(client)

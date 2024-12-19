@@ -10,3 +10,5 @@
 -- opt.foldenable = false
 -- opt.foldlevel = 99
 --
+
+vim.g.snacks_animate = false

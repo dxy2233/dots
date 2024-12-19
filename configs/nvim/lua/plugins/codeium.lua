@@ -1,4 +1,8 @@
 return {
+  -- {
+  --   "Exafunction/codeium.nvim",
+  --   enabled = false,
+  -- },
   {
     "nvim-cmp",
     optional = true,
@@ -31,5 +35,11 @@ return {
   --     "codeium.nvim",
   --     vim.g.ai_cmp and "saghen/blink.compat" or nil,
   --   },
+  -- },
+  -- {
+  --   "saghen/blink.compat",
+  --   optional = true, -- make optional so it's only enabled if any extras need it
+  --   opts = {},
+  --   version = not vim.g.lazyvim_blink_main and "*",
   -- },
 }
