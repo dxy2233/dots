@@ -1,29 +1,38 @@
 return {
   {
     "yetone/avante.nvim",
-    enabled = false,
+    -- enabled = false,
     event = "VeryLazy",
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
-      -- add any opts here
-      provider = "openai",
-      auto_suggestions_provider = "openai",
-      openai = {
-        model = "gpt-3.5-turbo",
+      provider = "deepseek",
+      vendors = {
+        deepseek = {
+          __inherited_from = "openai",
+          api_key_name = "DEEPSEEK_API_KEY",
+          endpoint = "https://api.deepseek.com",
+          model = "deepseek-coder",
+          max_tokens = 2048,
+          -- max_tokens = function(input_text)
+          --   local requested_tokens = #input_text * 4
+          --   return math.min(requested_tokens, 8192)
+          -- end,
+        },
       },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
+      "nvim-treesitter/nvim-treesitter",
       "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua", -- for providers='copilot'
+      -- "zbirenbaum/copilot.lua", -- for providers='copilot'
+      "saghen/blink.cmp",
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
@@ -37,7 +46,7 @@ return {
               insert_mode = true,
             },
             -- required for Windows users
-            use_absolute_path = true,
+            -- use_absolute_path = true,
           },
         },
       },

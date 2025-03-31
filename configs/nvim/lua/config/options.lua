@@ -11,4 +11,6 @@
 -- opt.foldlevel = 99
 --
 
+vim.g.lazyvim_blink_main = false
 vim.g.snacks_animate = false
+vim.opt.laststatus = 3
