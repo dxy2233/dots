@@ -1,55 +1,55 @@
 return {
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      -- format = {
-      --   timeout_ms = 5000,
-      -- },
-      -- servers = {
-      -- eslint = {
-      --   settings = {
-      --     workingDirectory = { mode = "auto" },
-      --   },
-      -- },
-      -- emmet_ls = {
-      --   filetypes = {
-      --     "css",
-      --     "eruby",
-      --     "html",
-      --     "javascript",
-      --     "javascriptreact",
-      --     "less",
-      --     "sass",
-      --     "scss",
-      --     "svelte",
-      --     "pug",
-      --     "typescriptreact",
-      --     "vue",
-      --   },
-      --   init_options = {
-      --     html = {
-      --       options = {
-      --         ["bem.enabled"] = true,
-      --       },
-      --     },
-      --   },
-      -- },
-      -- volar = {
-      --   filetypes = { "vue" },
-      -- },
-      -- },
-      -- setup = {
-      --   volar = function()
-      --     require("lazyvim.util").lsp.on_attach(function(client)
-      --       if client.name == "volar" then
-      --         client.server_capabilities.documentFormattingProvider = false
-      --         client.server_capabilities.documentRangeFormattingProvider = false
-      --       end
-      --     end)
-      --   end,
-      -- },
-    },
-  },
+  --   {
+  --     "neovim/nvim-lspconfig",
+  --     opts = {
+  -- format = {
+  --   timeout_ms = 5000,
+  -- },
+  -- servers = {
+  -- eslint = {
+  --   settings = {
+  --     workingDirectory = { mode = "auto" },
+  --   },
+  -- },
+  -- emmet_ls = {
+  --   filetypes = {
+  --     "css",
+  --     "eruby",
+  --     "html",
+  --     "javascript",
+  --     "javascriptreact",
+  --     "less",
+  --     "sass",
+  --     "scss",
+  --     "svelte",
+  --     "pug",
+  --     "typescriptreact",
+  --     "vue",
+  --   },
+  --   init_options = {
+  --     html = {
+  --       options = {
+  --         ["bem.enabled"] = true,
+  --       },
+  --     },
+  --   },
+  -- },
+  -- volar = {
+  --   filetypes = { "vue" },
+  -- },
+  -- },
+  -- setup = {
+  --   volar = function()
+  --     require("lazyvim.util").lsp.on_attach(function(client)
+  --       if client.name == "volar" then
+  --         client.server_capabilities.documentFormattingProvider = false
+  --         client.server_capabilities.documentRangeFormattingProvider = false
+  --       end
+  --     end)
+  --   end,
+  -- },
+  --   },
+  -- },
   -- {
   --   "stevearc/conform.nvim",
   --   optional = true,

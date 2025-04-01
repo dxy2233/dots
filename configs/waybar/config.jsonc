@@ -13,6 +13,7 @@
   ],
   "modules-right": [
     "tray",
+    "custom/colorpick",
     "bluetooth",
     "pulseaudio",
     "memory",
@@ -102,7 +103,7 @@
   // },
   "network": {
     "format-wifi": " {signalStrength}%",
-    "format-ethernet": "󰈀 ",
+    "format-ethernet": "󰈀",
     "format-disconnected": "󰖪 "
   },
   "pulseaudio": {
@@ -141,6 +142,10 @@
   "custom/launcher": {
     "format": " <span> </span>",
     "on-click": "wofi --show drun"
+  },
+  "custom/colorpick": {
+    "format": " <span>󱏞 </span>",
+    "on-click": "hyprpicker -a"
   },
   "mpris": {
     "player": "musicfox",
