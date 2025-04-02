@@ -2,8 +2,8 @@ return {
   {
     "Mofiqul/dracula.nvim",
   },
-  -- { "ellisonleao/gruvbox.nvim" },
-  -- { "rebelot/kanagawa.nvim" },
+  { "ellisonleao/gruvbox.nvim" },
+  { "rebelot/kanagawa.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {

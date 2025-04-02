@@ -14,7 +14,13 @@ window#waybar {
 #workspaces button {
   padding: 0 5px;
   color: #928374;
+  /* background: none; */
+  /* border: none; */
+  /* box-shadow:none; */
 }
+/* #workspaces button:hover { */
+/*   color: red; */
+/* } */
 #workspaces button.active {
   color: #272727;
 }
