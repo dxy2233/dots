@@ -13,7 +13,7 @@ return {
           api_key_name = "DEEPSEEK_API_KEY",
           endpoint = "https://api.deepseek.com",
           model = "deepseek-coder",
-          max_tokens = 2048,
+          -- max_tokens = 2048,
           -- max_tokens = function(input_text)
           --   local requested_tokens = #input_text * 4
           --   return math.min(requested_tokens, 8192)
@@ -21,7 +21,6 @@ return {
         },
       },
     },
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
@@ -30,8 +29,11 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
+      "echasnovski/mini.pick",
+      "nvim-telescope/telescope.nvim",
+      "ibhagwan/fzf-lua",
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      -- "zbirenbaum/copilot.lua", -- for providers='copilot'
+      "zbirenbaum/copilot.lua", -- for providers='copilot'
       "saghen/blink.cmp",
       {
         -- support for image pasting

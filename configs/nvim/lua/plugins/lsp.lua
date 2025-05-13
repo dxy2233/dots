@@ -130,6 +130,9 @@ return {
       formatters_by_ft = {
         json = { "prettier" },
         scss = { "prettier" },
+        vue = { "eslint" },
+        astro = { "eslint" },
+        jsx = { "eslint" },
       },
     },
   },
