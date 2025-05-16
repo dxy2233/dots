@@ -129,6 +129,7 @@ return {
     opts = {
       formatters_by_ft = {
         json = { "prettier" },
+        css = { "prettier" },
         scss = { "prettier" },
         vue = { "eslint" },
         astro = { "eslint" },

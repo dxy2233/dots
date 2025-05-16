@@ -107,7 +107,7 @@
     "format-disconnected": "󰖪 "
   },
   "pulseaudio": {
-    "format": "{icon}{volume}%",
+    "format": "{icon} {volume}%",
     "format-bluetooth": " {volume}%",
     "format-bluetooth-muted": "󰆪 ",
     "format-muted": "󰖁 ",
@@ -137,11 +137,12 @@
   },
   "custom/power-menu": {
     "format": " <span>⏻ </span>",
-    "on-click": "bash ~/.config/waybar/scripts/poweroff.sh"
+    "on-click": "bash ~/.config/waybar/scripts/powermenu.sh"
   },
   "custom/launcher": {
     "format": " <span> </span>",
-    "on-click": "wofi --show drun"
+    // "on-click": "wofi --show drun"
+    "on-click": "bash ~/.config/waybar/scripts/pacman.sh"
   },
   "custom/colorpick": {
     "format": " <span>󱏞 </span>",
