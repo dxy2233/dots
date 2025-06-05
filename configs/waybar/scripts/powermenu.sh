@@ -9,7 +9,8 @@ CHOICE=$(
     --width 180 \
     --columns 1 \
     --lines 5 \
-    --style ~/.config/waybar/scripts/powermenu.css \  <<EOF
+    --style ~/.config/waybar/scripts/powermenu.css \
+    <<EOF
 󰐥
 
 󰌾
