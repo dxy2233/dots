@@ -7,8 +7,8 @@ CHOICE=$(
     --show dmenu \
     --prompt " 󰤆 " \
     --width 180 \
+    --height 540 \
     --columns 1 \
-    --lines 5 \
     --style ~/.config/waybar/scripts/powermenu.css \
     <<EOF
 󰐥
