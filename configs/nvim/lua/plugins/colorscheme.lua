@@ -26,7 +26,8 @@ return {
     end,
   },
   {
-    "echasnovski/mini.indentscope",
+    -- "echasnovski/mini.indentscope",
+    "nvim-mini/mini.indentscope",
     opts = {
       options = { try_as_border = true },
     },
