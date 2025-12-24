@@ -1,4 +1,11 @@
 return {
+  {
+    "zbirenbaum/copilot.lua",
+    enabled = false,
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    event = "BufReadPost",
+  },
   -- {
   --   "zbirenbaum/copilot.lua",
   --   enabled = false,
