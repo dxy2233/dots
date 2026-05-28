@@ -124,17 +124,17 @@ return {
   --     })
   --   end,
   -- },
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      formatters_by_ft = {
-        json = { "prettier" },
-        css = { "prettier" },
-        scss = { "prettier" },
-        -- vue = { "eslint" },
-        -- astro = { "eslint" },
-        -- jsx = { "eslint" },
-      },
-    },
-  },
+  -- {
+  --   "stevearc/conform.nvim",
+  --   opts = {
+  --     formatters_by_ft = {
+  --       json = { "prettier" },
+  --       css = { "prettier" },
+  --       scss = { "prettier" },
+  --       -- vue = { "eslint" },
+  --       -- astro = { "eslint" },
+  --       -- jsx = { "eslint" },
+  --     },
+  --   },
+  -- },
 }
