@@ -6,19 +6,21 @@ return {
       local scrollbar = require("scrollbar")
       local colors = require("dracula").colors()
       scrollbar.setup({
-        handle = { color = "#a80216" },
-        excluded_filetypes = { "prompt", "TelescopePrompt", "noice", "notify", "nerdtree" },
-        current_only = true,
-        base = "buffer",
-        column = 80,
-        signs_on_startup = { "all" },
+        exclude = {
+          filetypes = { "prompt", "TelescopePrompt", "noice", "notify", "nerdtree" },
+        },
+        providers = { gitsigns = true },
+        scrollbar = {
+          visibility = "active",
+          thumb = { highlight = { bg = "#a80216" } },
+        },
         marks = {
-          Search = { color = colors.orange },
-          Error = { color = colors.red },
-          Warn = { color = colors.cyan },
-          Info = { color = colors.green },
-          Hint = { color = colors.yellow },
-          Misc = { color = colors.purple },
+          Search = { highlight = { fg = colors.orange } },
+          Error = { highlight = { fg = colors.red } },
+          Warn = { highlight = { fg = colors.cyan } },
+          Info = { highlight = { fg = colors.green } },
+          Hint = { highlight = { fg = colors.yellow } },
+          Misc = { highlight = { fg = colors.purple } },
         },
       })
     end,
@@ -28,7 +30,6 @@ return {
     "lewis6991/gitsigns.nvim",
     config = function()
       require("gitsigns").setup()
-      require("scrollbar.handlers.gitsigns").setup()
     end,
   },
 
